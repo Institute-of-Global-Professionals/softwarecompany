@@ -1,0 +1,2287 @@
+/* ================ *** ================ */
+       /* PAGE LOADING SECTION */
+/* ================ *** ================ */
+
+#preloader{
+	background: #1d293e;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 9999999999;
+}
+
+#preloader .loader-container{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+}
+
+#preloader .loader-icon img{
+    width: 50%;
+    animation: loaderpulse alternate 900ms infinite;
+}
+
+@keyframes loaderpulse{
+	
+    0%{
+      transform: scale(1);
+    }
+    100% {
+    transform: scale(1.2);
+    }
+}
+
+#preloader p{
+	font-weight: 400;
+	color: #fff;
+	font-size: 2.4rem;
+	letter-spacing: .1rem;
+	text-align: center;
+	margin-top: 3rem;
+}
+
+#preloader p:after{
+    content: "";
+    position: absolute;
+    animation: dot ease infinite 2s;
+}
+
+@keyframes dot{
+    0%{
+        content: ".";
+    }
+    33%{
+        content: "..";
+    }
+    66%{
+        content: "...";
+    }
+}
+
+/* ================ *** ================ */
+            /* BASIC SETUP */
+/* ================ *** ================ */
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html{
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body{
+	font-family: 'Poppins', sans-serif;
+	text-rendering: optimizelegibility;
+	font-size: 1.6rem;
+	line-height: 1.3;
+}
+
+:focus{
+	outline: 0;
+}
+
+/* ================ *** ================ */
+       /* REUSABLE COMPONENTS */
+/* ================ *** ================ */
+
+.row{
+	max-width: 114rem;
+	margin: 0 auto;
+}
+
+section{
+	padding: 8rem 0;
+}
+
+ul li{
+	list-style: none;
+}
+
+span{
+	font-weight: 400;
+}
+
+p{
+	font-weight: 400;
+}
+
+.btn{
+	font-weight: 500;
+	text-decoration: none;
+	text-transform: capitalize;
+	font-size: 1.6rem;
+	display: inline-block;
+	cursor: pointer;
+}
+
+h4{
+	font-weight: 500;
+}
+
+h3{
+	font-weight: 500;
+}
+
+h2{
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 500;
+	color: #222;
+	text-transform: capitalize;
+	font-size: 2.8rem;
+	text-align: center;
+	position: relative;
+}
+
+.Title-text{
+	font-weight: 700;
+	color: #245af4;
+	font-size: 4rem;
+}
+
+h2:after{
+	content: '';
+	position: absolute;
+	width: 5rem;
+	height: .4rem;
+	background: #245af4;
+	text-align: center;
+	margin-top: 3rem;
+	margin-left: 1rem;
+}
+
+h2:before{
+	content: '';
+	position: absolute;
+	width: 5rem;
+	height: .4rem;
+	background: #245af4;
+	text-align: center;
+	margin-top: 3rem;
+	margin-left: -6rem;
+}
+
+/* ================ *** ================ */
+        /* TOP HEADER SECTION */
+/* ================ *** ================ */
+
+.top-header-section{
+	background-color: #245af4;
+	padding: .7rem 0;
+}
+
+.top-social ul{
+	display: inline-block;
+}
+
+.top-social ul li{
+	display: inline-block;
+	margin: 0 .7rem;
+}
+
+.top-social ul li:nth-child(1){
+	margin-left: 0;
+}
+
+.top-social li i{
+	display: inline-block;
+	color: #fff;
+	font-size: 1.7rem;
+	transition: .5s;
+}
+
+.top-social li i:hover{
+	color: #FFCF01;
+	transform: translateY(-3px);
+}
+
+.Language-section{
+	float: right;
+}
+
+.Language-section button{
+	position: relative;
+	border: none;
+	cursor: pointer;
+	background: transparent;
+	color: #fff;
+	display: inline-block;
+	font-size: 1.6rem;
+}
+
+.Language-section button i{
+	display: inline-block;
+	margin-right: .7rem;
+}
+
+.Language-section  ul{
+	position: absolute;
+	margin-top: .5rem;
+	padding: 0;
+	background: #ddd;
+	width: 11rem;
+	transform-origin: top;
+	transform: perspective(1000px) rotateY(-90deg); 
+	padding: .5rem;
+	border-radius: .5rem;
+	transition: .5s;
+	z-index: 2;
+}
+
+.Language-section ul.active{
+	transform: perspective(1000px) rotateX(0deg);
+}
+
+.Language-section  ul li{
+	margin: .7rem 0;
+}
+
+.Language-section li a{
+	font-weight: 400;
+	text-decoration: none;
+	color: #222;
+	font-size: 1.5rem;
+}
+
+.Language-section  ul li i{
+	display: inline-block;
+	color: #222;
+	font-size: 1.5rem;
+}
+
+.Language-section  li.active a{
+	color: #245af4;
+}
+
+.Language-section  li.active i{
+	color: #245af4;
+}
+
+/* ================ *** ================ */
+          /* HEADER SECTION */
+/* ================ *** ================ */
+
+header{
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+}
+
+header::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(7, 1, 90, 0.6),rgba(7, 1, 90, 0.6)),  url(img/Header-bg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	animation: anim 25s linear infinite;
+	z-index: -1;
+}
+
+@keyframes anim {
+	50%{
+	  transform: scale(2);
+	}
+	100%{
+	  transform: scale(1);
+	}
+  }
+
+  /* NAVIGATION */
+
+.logo{
+	  float: left;
+	  margin-top: 2.5rem;
+	  width: 20rem;
+}
+
+.main-nav{
+	  float: right;
+	  margin-top: 3rem;
+}
+
+.main-nav li{
+	  display: inline-block;
+	  margin-left: 1rem;
+	  position: relative;
+}
+
+.main-nav li:first-child{
+	  margin-left: 0;
+  }
+
+.main-nav li a:link,
+.main-nav li a:visited{
+	  font-weight: 500;
+	  text-decoration: none;
+	  color: #fff;
+	  display: inline-block;
+	  text-transform: capitalize;
+	  margin: 0 .5rem;
+	  font-size: 1.6rem;
+	  transition: .5s;
+  }
+
+.main-nav li a:hover:link,
+.main-nav li a:hover:visited{
+	  color: #FFCF01;
+  }
+
+.main-nav li a.active{
+	color: #FFCF01;
+  }
+
+.main-nav li a.active:after{
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: #FFCF01;
+	display: block;
+	margin: auto;
+	margin-top: .3rem;
+	transition: 0.5s;
+}
+
+.main-nav li:hover a.active:after{
+	width: 0;
+}
+
+.main-nav li:after{
+	content: '';
+	width: 0;
+	height: 2px;
+	background: #FFCF01;
+	display: block;
+	margin: auto;
+	margin-top: .3rem;
+	transition: 0.5s;
+}
+
+.main-nav li:hover:after{
+	width: 100%;
+}
+
+/* MOBILE MENU */
+
+.mobile-menu span{
+	font-size: 4rem;
+	float: right;
+	margin-top: 1.8rem;
+	color: #FFCF01;
+	cursor: pointer;
+	display: none;
+}
+
+.overlay{
+	width: 0;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #1d293e;
+	overflow-x: hidden;
+	transition: .5s;
+	z-index: 99999;
+}
+
+.overlay-content{
+	position: relative;
+	top: 10%;
+	left: 5%;
+	width: 100%;
+}
+
+.overlay a{
+	text-decoration: none;
+}
+
+.mobile-logo{
+	width: 20rem;
+	display: inline-block;
+	margin-bottom: 2rem;
+}
+
+.overlay .M-a{
+	font-weight: 400;
+	color: #fff;
+	font-size: 2.3rem;
+	text-transform: capitalize;
+	display: inline-block;
+	margin: .5rem 0;
+	margin-bottom: .5rem;
+	padding-bottom: .3rem;
+	display: inline-block;
+	transition: .5s;
+}
+
+.overlay .M-a:hover{
+	color: #FFCF01;
+}
+
+.overlay ul li .active{
+	color: #FFCF01;
+	border-bottom: .2rem solid #FFCF01;
+}
+
+.mobile-social ul li{
+	display: inline-block;
+	margin-top: 1.5rem;
+}
+
+.mobile-social li i{
+	display: inline-block;
+	width: 3.5rem;
+	height: 3.5rem;
+	line-height: 3.5rem;
+	text-align: center;
+	background: #FFCF01;
+	color: #000;
+	border-radius: .5rem;
+	font-size: 1.6rem;
+	margin: 0 .5rem;
+	transition: .5s;
+}
+
+.mobile-social li i:hover{
+	background: #7564e5;
+	color: #fff;
+	transform: translateY(-5px);
+}
+
+.mobile-social li i:nth-child(1){
+	margin-left: 0;
+}
+
+.overlay .closeBtn{
+	position: absolute;
+	top: 1rem;
+	right: 2rem;
+	font-size: 4.5rem;
+	color: #FFCF01;
+	transition: .5s;
+}
+
+.overlay .closeBtn:hover{
+	color:  #7564e5;
+}
+
+/* STICKY MENU */
+
+.sticky{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: #245af4;
+	z-index: 999;
+	padding: 1rem 0;
+	transition: .5s;
+}
+
+.sticky .logo{
+	margin-top: 0;
+}
+
+.sticky .main-nav{
+	margin-top: .7rem;
+}
+
+.sticky .mobile-menu span{
+	margin-top: -.7rem;
+}
+
+/* WhartApps */
+
+.gUdGJm{
+	margin-bottom: 1rem !important;
+	margin-right: 1rem !important;
+}
+
+.cnaTkR{
+	margin-bottom: 1rem !important;
+	margin-right: 1rem !important;
+}
+
+/* HERO TEXT BOX */
+
+.hero-text-box{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+	width: 114rem;
+}
+
+.hero-text-box h1{
+	font-weight: 700;
+	margin: 0;
+	color: #fff;
+	font-size: 4.5rem;
+}
+
+.hero-text-box h1 span{
+	font-weight: 700;
+	color: #FFCF01;
+}
+
+.hero-text-box p{
+	width: 70%;
+	margin-left: 15%;
+	text-align: center;
+	color: #fff;
+	margin-top: 1.2rem;
+	line-height: 1.5;
+	font-size: 1.7rem;
+}
+
+.btn-bg{
+	background: #FFCF01;
+	color: #000;
+	padding: 1rem 2rem;
+	border-radius: .5rem;
+	transition: .5s;
+	margin-top: 2.5rem;
+	margin-right: 1.5rem;
+	opacity: 0.9;
+}
+
+.btn-bg:hover{
+	opacity: 1;
+} 
+
+.btn-hover{
+	border: .1rem solid #FFCF01;
+	padding: 1rem 2rem;
+	border-radius: .5rem;
+	color: #FFCF01;
+	transition: .5s;
+	opacity: 0.9;
+}
+
+.btn-hover:hover{
+	background: #FFCF01;
+	color: #000;
+	opacity: 1;
+}
+
+/* ================ *** ================ */
+         /* HOME ABOUT SECTION */
+/* ================ *** ================ */
+
+.home-about-img img{
+	width: 100%;
+	border-radius: 0 40px 0 40px;
+	border: .5rem solid #245af4;
+}
+
+.home-about-content{
+	margin-top: 3.5rem;
+}
+
+.home-about-content h4{
+	color: #245af4;
+	font-size: 2rem;
+}
+
+.home-about-content h3{
+	color: #1d293e;
+	font-size: 2.3rem;
+	margin: 1rem 0;
+}
+
+.home-about-content p{
+	font-size: 1.6rem;
+	line-height: 1.4;
+	color: #222;
+}
+
+.btn-home-about{
+	display: inline-block;
+	background: #FFCF01;
+	color: #000;
+	padding: 1rem 2.5rem;
+	border-radius: .5rem;
+	margin-top: 2rem;
+	margin-right: 1rem;
+	font-size: 1.6rem;
+	transition: .5s;
+}
+
+.btn-home-about:hover{
+	letter-spacing: .1rem;
+}
+
+.btn-home-about-Ho{
+	border: .1rem solid #FFCF01;
+	padding: 1rem 2.5rem;
+	color: #000;
+	border-radius: .5rem;
+	font-size: 1.6rem;
+	transition: .5s;
+}
+
+.btn-home-about-Ho:hover{
+	background: #FFCF01;
+	letter-spacing: .1rem;
+}
+
+/* ================ *** ================ */
+         /* SERVICES SECTION */
+/* ================ *** ================ */
+
+.services-section .row:nth-child(2){
+	margin-top: 5rem;
+}
+
+.services-section .row:nth-child(3){
+	margin-top: 5rem;
+}
+
+.services-box{
+	background: #0b0b13;
+	padding: 2.8rem;
+	border-radius: 1rem;
+	overflow: hidden;
+	position: relative;
+	z-index: 1;
+	cursor: pointer;
+}
+
+.services-box:before{
+	content: "";
+	position: absolute;
+	top: -220px;
+	left: -220px;
+	width: 20rem;
+	height: 20rem;
+	border-radius: 0;
+	z-index: -1;
+	background: #0b0b13;
+	transition: cubic-bezier(0.39, 0.58, 0.57, 1) all 0.55s;
+}
+
+.services-box:after{
+	content: "";
+	position: absolute;
+	top: -72px;
+	left: -40px;
+	width: 20rem;
+	height: 20rem;
+	border-radius: 50%;
+	z-index: -2;
+	background-color: #245af4;
+	background-image: linear-gradient(315deg, #245af4 0%, #FFCF01 74%);
+	transition: cubic-bezier(0.39, 0.58, 0.57, 1) all 0.15s;
+}
+
+.services-box i{
+	line-height: 6rem;
+	font-size: 4rem;
+	color: #fff;
+}
+
+.services-box .services-content{
+	margin-top: 4.5rem;
+}
+
+.services-box h3{
+	margin-bottom: 2rem;
+	color: #fff;
+	font-size: 2.4rem;
+	text-transform: capitalize;
+	transition: .5s;
+}
+
+.services-box:hover h3{
+	color: #000;
+}
+
+.services-box p{
+	color: #fff;
+	line-height: 1.5;
+	transition: .5s;
+}
+
+.services-box:hover p{
+	color: #000;
+}
+
+.services-box:hover:before{
+	top: -7.2rem;
+	left: -4rem;
+	border-radius: 50%;
+}
+
+.services-box:hover:after{
+	content: "";
+	width: 120%;
+	left: -10%;
+	top: -10%;
+	height: 120%;
+	border-radius: 0;
+	transition: cubic-bezier(0.39, 0.58, 0.57, 1) all 0.55s;
+}
+
+.btn-services{
+	background: #FFCF01;
+	padding: 1rem 2rem;
+	border-radius: .5rem;
+	color: #000;
+	font-size: 1.6rem;
+	margin-top: 2.5rem;
+}
+
+.services-box img{
+	max-width: 100%;
+	width: 5.5rem;
+}
+
+/* ================ *** ================ */
+           /* GIGS SECTION */
+/* ================ *** ================ */
+
+.Gigs-section .row:nth-child(2){
+	margin-top: 4.5rem;
+}
+
+.Gigs-section .col:nth-child(4){
+	margin-left: 0;
+	margin-top: 3rem;
+}
+
+.Gigs-section .col:nth-child(5){
+	margin-top: 3rem;
+}
+
+.Gigs-section .col:nth-child(6){
+	margin-top: 3rem;
+}
+
+.Gigs-section .col:nth-child(7){
+	margin-left: 0;
+	margin-top: 3rem;
+}
+
+.Gigs-section .Title-text{
+	letter-spacing: -.1rem;
+}
+
+.gig-img-box img{
+	width: 100%;
+}
+
+.gig-img-box a{
+	text-decoration: none;
+}
+
+.gig-img-box h3{
+	font-weight: 400;
+	font-size: 1.6rem;
+	margin-top: .7rem;
+	color: #222;
+	transition: .5s;
+}
+
+.gig-img-box:hover h3{
+	color: #245af4;
+	text-decoration: underline;
+}
+
+/* ================ *** ================ */
+           /* HELP SECTION */
+/* ================ *** ================ */
+
+.help-section{
+	background: linear-gradient(rgba(7, 1, 90, 0.9),rgba(7, 1, 90, 0.8)), url(img/software-developer-working.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	opacity: 0.9; 
+	padding: 10rem 0;
+	text-align: center;
+	background-attachment: fixed;
+}
+
+.help-section h3{
+	font-weight: 600;
+	color: #fff;
+	font-size: 4.5rem;
+}
+
+.help-section h4{
+	margin-top: 2rem;
+	color: #fff;
+	font-size: 2.5rem;
+}
+
+.help-section p{
+	color: #fff;
+	font-size: 2rem;
+	margin-top: 1.5rem;
+}
+
+/* ================ *** ================ */
+          /* WORK SECTION */
+/* ================ *** ================ */
+
+.work-section{
+	text-align: center;
+}
+
+.work-section .Title-text{
+	letter-spacing: -.1rem;
+}
+
+.portfolio-filter{
+	margin: 4.5rem;
+}
+
+.portfolio-filter button{
+	font-weight: 400;
+	border: 0;
+	padding: 1rem 2rem;
+	background: #245af4;
+	color: #fff;
+	border-radius: .5rem;
+	font-size: 1.6rem;
+	text-transform: capitalize;
+	margin: .5rem;
+	transition: .5s;
+}
+
+.portfolio-filter button:hover{
+	background: #FFCF01;
+	color: #000;
+	cursor: pointer;
+}
+
+.work-section .mixitup-control-active{
+	background: #FFCF01;
+	color: #000;
+}
+
+.portfolio-img-area{
+	position: relative;
+	overflow: hidden;
+}
+
+.portfolio-img-area img{
+	width: 100%;
+	height: 27rem;
+	transition: all 0.4s ease 0s;
+}
+
+.Box:hover .box-content{
+	opacity: 1;
+	transform: rotate(0deg) scale(1.1);
+}
+
+.portfolio-img-area .box-content{
+	position: absolute;
+	background: #245cf4d5;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	transition: .5s;
+	transform: rotateY(180deg) scale(0.5, 0.5);
+}
+
+.box-content h3{
+	position: relative;
+	top: 40%;
+	color: #fff;
+	font-size: 1.6rem;
+} 
+
+.box-content ul li{
+	display: inline-block;
+	position: relative;
+	margin-top: 1rem;
+}
+
+.box-content .Icon{
+	position: absolute;
+	top: 50%;
+	left: 37%;
+}
+
+.box-content .Icon i{
+	display: inline-block;
+	background: #fff;
+	color: #000;
+	width: 3rem;
+	height: 3rem;
+	line-height: 3rem;
+	text-align: center;
+	font-size: 1.7rem;
+	border-radius: 0 .5rem 0 .5rem;
+	margin: 0 .5rem;
+	transition: .5s;
+}
+
+.box-content .Icon i:hover{
+	background: #FFCF01;
+	color: #000;
+	transform: translateY(-7px);
+}
+
+.work-section .col:nth-child(4){
+	margin-left: 0;
+}
+
+.work-section .col:nth-child(7){
+	margin-left: 0;
+}
+
+.work-section .col:nth-child(10){
+	margin-left: 0;
+}
+
+/* ================ *** ================ */
+          /* CLIENT SECTION */
+/* ================ *** ================ */
+
+.client-section{
+	position: relative;
+}
+
+.client-section::before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background: #FFCF01;
+	z-index: -1;
+}
+
+.client-section .row:nth-child(2){
+	margin-top: 4rem;
+}
+
+.testimonial-item{
+	background: #fff;
+	padding: 3rem;
+	border-radius: 1rem;
+	border-top: .5rem solid #245af4;
+	position: relative;
+}
+
+.quote i{
+	display: inline-block;
+	color: #245af4;
+	font-size: 3rem;
+}
+
+.client-start ul li{
+	display: inline-block;
+	margin-top: 1rem;
+}
+
+.client-start li i{
+	display: inline-block;
+	color: #e7c82f;
+	font-size: 1.7rem;
+}
+
+.client-des p{
+	color: #222;
+	font-size: 1.6rem;
+	margin-top: 1rem;
+	line-height: 1.4;
+	margin-bottom: 2rem;
+}
+
+.happy-client h3{
+	color: #245af4;
+	font-size: 1.7rem;
+}
+
+.happy-client p{
+	font-weight: 500;
+	color: #1d293e;
+	font-size: 1.5rem;
+}
+
+.owl-theme .owl-dots .owl-dot span{
+	border-radius: 1rem !important;
+	width: 30px !important;
+	height: 10px !important;
+} 
+
+#Tesimonial .owl-theme .owl-dots .owl-dot:hover span,#Tesimonial .owl-theme .owl-dots .owl-dot.active span{
+	background: #245af4;
+}
+
+/* ========================= *** ========================== */
+                     /* ALL PAGE DESIGN */
+/* ========================== *** ========================== */
+
+/* ================ *** ================ */
+             /* ABOUT PAGE */
+/* ================ *** ================ */
+
+.about-page-header{
+	width: 100%;
+	height: 70vh;
+	position: relative;
+	overflow: hidden;
+}
+
+.about-page-header::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(7, 1, 90, 0.6),rgba(7, 1, 90, 0.6)),  url(img/mh-software-company-about-page.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	animation: anim 25s linear infinite;
+	z-index: -1;
+}
+
+.about-page-header svg{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+}
+
+.about-page-header .hero-text-box ul li{
+	display: inline-block;
+	margin-top: 1.5rem;
+	color: #fff;
+}
+
+.about-page-header .hero-text-box li a{
+	font-weight: 500;
+	text-decoration: none;
+	color: #fff;
+	font-size: 1.6rem;
+	transition: .5s;
+}
+
+.about-page-header .hero-text-box li a:hover{
+	color: #e7c82f;
+}
+
+.about-page-header .hero-text-box .btn-hover{
+	margin-top: 2.5rem;
+}
+
+#particles-js{
+	overflow: hidden; 
+ }
+
+
+/* ================ *** ================ */
+             /* TEAM PAGE */
+/* ================ *** ================ */
+
+.team-page-header{
+	width: 100%;
+	height: 70vh;
+	position: relative;
+	overflow: hidden;
+}
+
+.team-page-header::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(7, 1, 90, 0.6),rgba(7, 1, 90, 0.6)),  url(img/mh-software-bd-team-page.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	animation: anim 25s linear infinite;
+	z-index: -1;
+}
+
+.team-page-header svg{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+}
+
+.team-page-header .hero-text-box ul li{
+	display: inline-block;
+	margin-top: 1.5rem;
+	color: #fff;
+}
+
+.team-page-header .hero-text-box li a{
+	font-weight: 500;
+	text-decoration: none;
+	color: #fff;
+	font-size: 1.6rem;
+	transition: .5s;
+}
+
+.team-page-header .hero-text-box li a:hover{
+	color: #e7c82f;
+}
+
+.team-page-header .hero-text-box .btn-hover{
+	margin-top: 2.5rem;
+}
+
+.team-section .Title-text{
+	letter-spacing: -.5rem;
+}
+
+.team-section .row:nth-child(2){
+	margin-top: 4.5rem;
+}
+
+.team-section .col:nth-child(4){
+	margin-left: 0;
+	margin-top: 5.5rem;
+}
+
+.team-section .col:nth-child(5){
+	margin-top: 5.5rem;
+}
+
+.team-section .col:nth-child(6){
+	margin-top: 5.5rem;
+}
+
+.team-section .col:nth-child(7){
+	margin-left: 0;
+	margin-top: 5.5rem;
+}
+
+.single{
+	margin-bottom: 30px;
+	border-radius: 5px;
+	box-shadow: 0px 10px 60px 0px rgba(46,61,98,0.1);
+	background: #ddd;
+	text-align: center;
+	position: relative;
+	padding-bottom: 60px;
+	padding-top: 57px;
+	transform: scaleY(1);
+	transform-origin: top;
+	transition: transform 500ms ease;
+}
+
+.single:hover{
+	transform: scaleY(1.20);
+}
+.inner{
+	transform-origin: top;
+	transition: transform 500ms ease;
+	transform: scaleY(1);
+}
+
+.single:hover .inner{
+	transform: scaleY(0.8);
+}
+
+.inner h3{
+	margin-bottom: .3rem;
+	font-size: 1.8rem;
+	color: #222;
+	text-transform: capitalize;
+}
+
+.inner p{
+	font-weight: 500;
+	margin-bottom: .8rem;
+	text-transform: uppercase;
+	font-size: 1.4rem;
+	letter-spacing: .5px;
+	color: #1d293e;
+}
+
+.single img{
+	width: 100%;
+	height: 100%;
+}
+
+.team-image{
+	width: 175px;
+	height: 175px;
+    margin-left: auto;
+	margin-right: auto;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 5px solid #245cf49f;
+	transition: all 500ms ease;	
+	margin-top: 2.5rem;
+}
+
+.single:hover .team-image{
+	border: 5px solid #fff;
+}
+
+.team-social{
+	position: absolute;
+	bottom: -70px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 11;
+	visibility: hidden;
+	opacity: 0;
+	transition: all 500ms ease;
+}
+
+.single:hover .team-social{
+	opacity: 1;
+	visibility: visible;
+}
+
+.team-social ul li{
+	display: inline-block;
+	margin: 0 .5rem;
+}
+
+.team-social ul li:nth-child(1){
+	margin-left: 0;
+}
+
+.team-social a{
+	text-decoration: none;
+	width: 4rem;
+	height: 4rem;
+	line-height: 4rem;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background: #FFCF01;
+	transition: all 500ms ease;
+}
+
+.team-social a i{
+	color: #000;
+	transition: all 500ms ease;
+	font-size: 16px;
+}
+
+.team-social a:hover{
+	background: #245af4;
+}
+
+.team-social a:hover i{
+	color: #fff;
+}
+
+.single::before{
+	content: '';
+	border-radius: .5rem;
+	background-image: linear-gradient(90deg, hotpink 0%, #34495e 100%);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transform: scale(1,0);
+	transform-origin: bottom;
+	transition: transform 500ms ease;
+}
+
+.single:hover::before{
+	transform: scale(1,1);
+	transform-origin: top;
+}
+
+.single:hover h3,
+.single:hover p{
+	color: rgba(255,255,255,0.7);
+}
+
+/* ================ *** ================ */
+           /* SERVICES PAGE */
+/* ================ *** ================ */
+
+.services-page-header{
+	width: 100%;
+	height: 70vh;
+	position: relative;
+	overflow: hidden;
+}
+
+.services-page-header::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(7, 1, 90, 0.6),rgba(7, 1, 90, 0.6)),  url(img/mh-software-company-services-page.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	animation: anim 25s linear infinite;
+	z-index: -1;
+}
+
+.services-page-header svg{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+}
+
+.services-page-header .hero-text-box ul li{
+	display: inline-block;
+	margin-top: 1.5rem;
+	color: #fff;
+}
+
+.services-page-header .hero-text-box li a{
+	font-weight: 500;
+	text-decoration: none;
+	color: #fff;
+	font-size: 1.6rem;
+	transition: .5s;
+}
+
+.services-page-header .hero-text-box li a:hover{
+	color: #e7c82f;
+}
+
+.services-page-header .hero-text-box .btn-hover{
+	margin-top: 2.5rem;
+}
+
+.counter-box{
+	background: #242f51;
+	text-align: center;
+	padding: 2rem;
+	border-radius: 0 40px 0 40px;
+	border-top: .5rem solid #FFCF01;
+}
+
+.counter-icon{
+	display: inline-block;
+	width: 4.5rem;
+	height: 4.5rem;
+	background: #FFCF01;
+	border-radius: .5rem;
+	transform: rotate(45deg);
+	transition: 0.3s linear;
+}
+
+.counter-icon i{
+	display: inline-block;
+	line-height: 4.5rem;
+	transform: rotate(-45deg); 
+	font-size: 2.5rem;
+	color: #000;
+}
+
+.counter-content{
+	margin-top: 2rem;
+}
+
+.counter-content h3{
+	font-weight: 600;
+	color: #fff;
+	font-size: 3.5rem;
+}
+
+.counter-content p{
+	font-weight: 400;
+	color: #fff;
+	font-size: 1.7rem;
+	margin-top: .7rem;
+}
+
+/* ================ *** ================ */
+            /* WORK PAGE */
+/* ================ *** ================ */
+
+.work-page-header{
+	width: 100%;
+	height: 70vh;
+	position: relative;
+	overflow: hidden;
+}
+
+.work-page-header::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(7, 1, 90, 0.6),rgba(7, 1, 90, 0.6)),  url(img/mh-software-bd-work-page.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	animation: anim 25s linear infinite;
+	z-index: -1;
+}
+
+.work-page-header svg{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+}
+
+.work-page-header .hero-text-box ul li{
+	display: inline-block;
+	margin-top: 1.5rem;
+	color: #fff;
+}
+
+.work-page-header .hero-text-box li a{
+	font-weight: 500;
+	text-decoration: none;
+	color: #fff;
+	font-size: 1.6rem;
+	transition: .5s;
+}
+
+.work-page-header .hero-text-box li a:hover{
+	color: #e7c82f;
+}
+
+.work-page-header .hero-text-box .btn-hover{
+	margin-top: 2.5rem;
+}
+
+/* ================ *** ================ */
+              /* FAQ PAGE */
+/* ================ *** ================ */
+
+.faq-page-header{
+	width: 100%;
+	height: 70vh;
+	position: relative;
+	overflow: hidden;
+}
+
+.faq-page-header::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(7, 1, 90, 0.6),rgba(7, 1, 90, 0.6)),  url(img/mh-software-company-client-page.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	animation: anim 25s linear infinite;
+	z-index: -1;
+}
+
+.faq-page-header svg{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+}
+
+.faq-page-header .hero-text-box ul li{
+	display: inline-block;
+	margin-top: 1.5rem;
+	color: #fff;
+}
+
+.faq-page-header .hero-text-box li a{
+	font-weight: 500;
+	text-decoration: none;
+	color: #fff;
+	font-size: 1.6rem;
+	transition: .5s;
+}
+
+.faq-page-header .hero-text-box li a:hover{
+	color: #e7c82f;
+}
+
+.faq-page-header .hero-text-box .btn-hover{
+	margin-top: 2.5rem;
+}
+
+/* Follow By Pricing page Gigs */
+
+/* ================ *** ================ */
+            /* REVIEW PAGE */
+/* ================ *** ================ */
+
+.review-page-header{
+	width: 100%;
+	height: 70vh;
+	position: relative;
+	overflow: hidden;
+}
+
+.review-page-header::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(7, 1, 90, 0.6),rgba(7, 1, 90, 0.6)),  url(img/mh-software-company-client-page.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	animation: anim 25s linear infinite;
+	z-index: -1;
+}
+
+.review-page-header svg{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+}
+
+.review-page-header .hero-text-box ul li{
+	display: inline-block;
+	margin-top: 1.5rem;
+	color: #fff;
+}
+
+.review-page-header .hero-text-box li a{
+	font-weight: 500;
+	text-decoration: none;
+	color: #fff;
+	font-size: 1.6rem;
+	transition: .5s;
+}
+
+.review-page-header .hero-text-box li a:hover{
+	color: #e7c82f;
+}
+
+.review-page-header .hero-text-box .btn-hover{
+	margin-top: 2.5rem;
+}
+
+.review-img img{
+	width: 100%;
+	border-radius: 0 40px 0 40px;
+	border: .5rem solid #245af4;
+}
+
+.review-content{
+	margin-top: 4.5rem;
+}
+
+.review-content h3{
+	color: #245af4;
+	font-size: 2.5rem;
+	margin-bottom: 2rem;
+}
+
+.review-content p{
+	font-size: 1.7rem;
+	line-height: 1.4;
+	color: #000;
+}
+
+.btn-faq{
+	background: #245af4;
+	color: #fff;
+	padding: 1rem 2rem;
+	border-radius: .5rem;
+	margin-top: 2.5rem;
+	margin-right: 2rem;
+}
+
+.btn-fa{
+	background: #245af4;
+	color: #fff;
+	padding: 1rem 2rem;
+	border-radius: .5rem;
+	margin-top: 2.5rem;
+}
+
+/* ================ *** ================ */
+         /* ORDER NOW PAGE */
+/* ================ *** ================ */
+
+.order-page-header{
+	width: 100%;
+	height: 70vh;
+	position: relative;
+	overflow: hidden;
+}
+
+.order-page-header::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(7, 1, 90, 0.6),rgba(7, 1, 90, 0.6)),  url(img/mh-software-company-client-page.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	animation: anim 25s linear infinite;
+	z-index: -1;
+}
+
+.order-page-header svg{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+}
+
+.order-page-header .hero-text-box .btn-hover{
+	margin-top: 2.5rem;
+}
+
+.order-section .pricing-des{
+	font-weight: 400;
+	width: 50%;
+	margin-left: 25%;
+	text-align: center;
+	margin-top: 1rem;
+	color: #222;
+	font-size: 1.6rem;
+}
+
+.order-section .pricing-des a{
+	text-decoration: none;
+}
+
+.order-section .pricing-des a:hover{
+	text-decoration: underline;
+}
+
+.order-section form{
+	width: 80%;
+	margin-left: 10%;
+	text-align: center;
+	margin-top: 4rem;
+}
+
+.order-section form input[type="text"],
+.order-section form input[type="email"],
+.order-section form input[type="file"],
+.order-section form textarea,
+.order-section form select{
+	font-weight: 400;
+	width: 100%;
+	border: 0;
+	border: .2rem solid #ddd;
+	border-radius: .5rem;
+	padding: .6rem 1.2rem;
+	margin-bottom: 1.5rem;
+	text-transform: capitalize;
+	font-size: 1.6rem;
+	color: #000;
+}
+
+.order-section form input[type="text"]:focus{
+    border-color: #245af4;
+}
+
+.order-section form textarea{
+	height: 20rem;
+}
+
+.btn-sunmit{
+	background: #245af4;
+	color: #fff;
+	border: 0;
+	padding: 1.3rem 2.5rem;
+	border-radius: .5rem;
+	margin-top: 2rem;
+}
+
+.order-section form ::placeholder{
+	opacity: 1;
+	color: #000;
+}
+
+/* ================ *** ================ */
+            /* CUSTOM ORDER PAGE */
+/* ================ *** ================ */
+
+.custom-page-page-header{
+	width: 100%;
+	height: 70vh;
+	position: relative;
+	overflow: hidden;
+}
+
+.custom-page-page-header::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(7, 1, 90, 0.6),rgba(7, 1, 90, 0.6)),  url(img/mh-software-company-client-page.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	animation: anim 25s linear infinite;
+	z-index: -1;
+}
+
+.custom-page-page-header svg{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+}
+
+.custom-page-page-header .hero-text-box .btn-hover{
+	margin-top: 2.5rem;
+}
+
+
+/* ================ *** ================ */
+            /* CONTACT PAGE */
+/* ================ *** ================ */
+
+.contact-page-header{
+	width: 100%;
+	height: 70vh;
+	position: relative;
+	overflow: hidden;
+}
+
+.contact-page-header::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(7, 1, 90, 0.6),rgba(7, 1, 90, 0.6)),  url(img/mh-software-company-contact-page.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center top 10%;
+	animation: anim 25s linear infinite;
+	z-index: -1;
+}
+
+.contact-page-header svg{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+}
+
+.contact-page-header .hero-text-box ul li{
+	display: inline-block;
+	margin-top: 1.5rem;
+	color: #fff;
+}
+
+.contact-page-header .hero-text-box li a{
+	font-weight: 500;
+	text-decoration: none;
+	color: #fff;
+	font-size: 1.6rem;
+	transition: .5s;
+}
+
+.contact-page-header .hero-text-box li a:hover{
+	color: #e7c82f;
+}
+
+.contact-page-header .hero-text-box .btn-hover{
+	margin-top: 2.5rem;
+}
+
+.contact-section form{
+	width: 80%;
+	margin-left: 10%;
+	text-align: center;
+	margin-top: 5rem;
+}
+
+.contact-section form input[type="text"],
+.contact-section form input[type="email"],
+.contact-section form textarea{
+	font-weight: 400;
+	width: 100%;
+	border: 0;
+	border: .2rem solid #ddd;
+	border-radius: .5rem;
+	padding: .6rem 1.2rem;
+	font-size: 1.6rem;
+	color: #000;
+	text-transform: capitalize;
+	margin-bottom: 1.5rem;
+}
+
+.contact-section form ::placeholder{
+	opacity: 1;
+	color: #000;
+}
+
+.contact-section form textarea{
+	height: 20rem;
+}
+
+.btn-send{
+	background: #245af4;
+	color: #fff;
+	padding: 1.3rem 2.5rem;
+	border-radius: .5rem;
+	border: 0;
+	margin-top: 2rem;
+	opacity: 0.9;
+	transition: .5s;
+}
+
+.btn-send:hover{
+	opacity: 1;
+}
+
+/* ================ *** ================ */
+       /* PRIVACY & POLICIES PAGE */
+/* ================ *** ================ */
+
+/* PRIVACY & TERMS AND CONDITIONS PAGE HEADER */
+
+.privacy-and-terms-page-header{
+	width: 100%;
+	height: 70vh;
+	position: relative;
+	overflow: hidden;
+}
+
+.privacy-and-terms-page-header::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(7, 1, 90, 0.7),rgba(7, 1, 90, 0.7)),  url(img/software-developer-working.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	animation: anim 25s linear infinite;
+	z-index: -1;
+}
+
+.privacy-and-terms-page-header svg{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+}
+
+.privacy-and-terms-page-header .hero-text-box ul li{
+	display: inline-block;
+	margin-top: 1.5rem;
+	color: #fff;
+}
+
+.privacy-and-terms-page-header .hero-text-box li a{
+	font-weight: 500;
+	text-decoration: none;
+	color: #fff;
+	font-size: 1.6rem;
+	transition: .5s;
+}
+
+.privacy-and-terms-page-header .hero-text-box li a:hover{
+	color: #e7c82f;
+}
+
+.privacy-and-terms-page-header .hero-text-box .btn-hover{
+	margin-top: 2.5rem;
+}
+
+/* ========================= *** ========================== */
+                  /* ALL END PAGE DESIGN */
+/* ========================== *** ========================== */
+
+/* ========================= *** ========================== */
+                /* START PRICING PAGE DESIGN */
+/* ========================== *** ========================== */
+
+/* PRICING ALL HEADER PAGE */
+
+.pricing-page-header{
+	width: 100%;
+	height: 70vh;
+	position: relative;
+	overflow: hidden;
+}
+
+.pricing-page-header::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(7, 1, 90, 0.6),rgba(7, 1, 90, 0.6)),  url(img/mh-software-company-client-page.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	animation: anim 25s linear infinite;
+	z-index: -1;
+}
+
+.pricing-page-header svg{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+}
+
+.pricing-page-header .hero-text-box .btn-hover{
+	margin-top: 2.5rem;
+}
+
+/* ================ *** ================ */
+         /* PRICING PAGE GIGS */
+/* ================ *** ================ */
+
+.pricing-section .pricing-des{
+	font-weight: 400;
+	width: 50%;
+	margin-left: 25%;
+	text-align: center;
+	margin-top: 1rem;
+	color: #222;
+	font-size: 1.6rem;
+}
+
+.pricing-section .pricing-des a{
+	text-decoration: none;
+}
+
+.pricing-section .pricing-des a:hover{
+	text-decoration: underline;
+}
+
+.pricing-card{
+	background: #ddd;
+	text-align: center;
+	overflow: hidden;
+	cursor: pointer;
+	color: #2d2d2d;
+	border-radius: .5rem;
+	height: 55rem;
+	transition: .3s linear;
+}
+
+.pricing-card-header{
+	background: #245af4;
+	color: #fff;
+	display: inline-block;
+	padding: 1.2rem 3rem;
+	border-radius: 0 0 2rem 2rem;
+	font-size: 1.7rem;
+	transition: .4s linear;
+}
+
+.price{
+	font-weight: 600;
+	color: #245af4;
+	font-size: 3.5rem;
+	margin: 3rem 0;
+	transition: .2s linear;
+}
+
+.price-info li{
+	font-weight: 500;
+	font-size: 1.6rem;
+	text-transform: capitalize;
+	margin: 2rem 0;
+	transition: .2s linear;
+}
+
+.pricing-card:hover .pricing-card-header{
+	box-shadow: 0 0 0 23em #245af4;
+}
+
+.pricing-card:hover .price{
+	color: #fff;
+}
+
+.pricing-card:hover .price-info li{
+	color: #fff;
+}
+
+.btn-order{
+	background: #245af4;
+	color: #fff;
+	padding: 1rem 2rem;
+	border-radius: .5rem;
+	margin-top: 3.5rem;
+}
+
+.pricing-section .row:nth-child(2){
+	margin-top: 4.5rem;
+}
+
+.faq-section .row:nth-child(2){
+	margin-top: 3.5rem;
+}
+
+.accordion{
+	width: 70%;
+	margin-left: 15%;
+}
+
+.accordion .contentBox{
+	position: relative;
+	margin: 2rem 0;
+}
+
+.accordion .contentBox .label{
+	position: relative;
+	padding: 1rem;
+	color: #222754;
+	font-weight: 600;
+	font-size: 1.7rem;
+	border-radius: 5rem;
+	border: .1rem solid #e6e6e6;
+	padding-right: 5rem;
+	cursor: pointer;
+}
+
+.accordion .contentBox .label::before{
+	content: '+';
+	position: absolute;
+	top: 50%;
+	right: 2rem;
+	transform: translateY(-50%);
+	font-size: 2.3rem;
+	color: #222754;
+}
+
+.accordion .Content p{
+	color: #4C5073;
+	font-size: 1.6rem;
+	line-height: 1.6;
+}
+
+.accordion .contentBox .Content{
+	position: relative;
+	height: 0;
+	overflow: hidden;
+	overflow-y: auto;
+	transition: .5s;
+}
+
+.accordion .contentBox.active .Content{
+	height: 7rem;
+	padding: 1rem;
+}
+
+.accordion .contentBox.active .label::before{
+	content: '-';
+	font-size: 3rem;
+	color: #3C73F1;
+}
+
+.accordion .contentBox.active .label{
+	color: #3C73F1;
+}
+
+.accordion .contentBox.active .label{
+	border: 1px solid #3C73F1;
+}
+
+/* ========================= *** ========================== */
+                /* END PRICING PAGE DESIGN */
+/* ========================== *** ========================== */
+
+/* ================ *** ================ */
+          /* PAGE UP SECTION */
+/* ================ *** ================ */
+
+#topBtn{
+	position: fixed;
+	left: 1rem;
+	bottom: 2rem;
+	display: block;
+	border: none;
+	width: 3.7rem;
+	height: 3.7rem;
+	line-height: 3.7rem;
+	text-align: center;
+	background: #245af4;
+	border-radius: .5rem;
+	color: #fff;
+	font-size: 1.9rem;
+	z-index: 2;
+	transition: .5s;
+	display: none;
+}
+
+#topBtn:hover{
+	transform: translateY(-7px);
+	cursor: pointer;
+}
+
+/* ================ *** ================ */
+          /* FOOTER SECTION */
+/* ================ *** ================ */
+
+.footer-section{
+	background: linear-gradient(310deg, #FF0FAA 20%, #3300FF 100%);
+	padding: 5rem 0;
+}
+
+.footer-section h3{
+	font-weight: 500;
+	color: #fff;
+	font-size: 2.4rem;
+	margin-bottom: 1rem;
+}
+
+.footer-section h3:after{
+	content: '';
+	display: block;
+	height: .4rem;
+	background: #245af4;
+	width: 6rem;
+	margin-top: 1rem;
+}
+
+.footer-logo{
+	width: 20rem;
+}
+
+.column-1 p{
+	color: #fff;
+	line-height: 1.4;
+	margin-top: 1.5rem;
+}
+
+.footer-social ul li{
+	display: inline-block;
+	margin-top: 1.5rem;
+}
+
+.footer-social li i{
+	display: inline-block;
+	background: #245af4;
+	color: #fff;
+	width: 3.5rem;
+	height: 3.5rem;
+	line-height: 3.5rem;
+	text-align: center;
+	border-radius: .5rem;
+	font-size: 1.6rem;
+	margin: 0 .5rem;
+}
+
+.footer-social li i:nth-child(1){
+	margin-left: 0;
+}
+
+.footer-menu li a{
+	font-weight: 500;
+	display: inline-block;
+	text-decoration: none;
+	color: #fff;
+	text-transform: capitalize;
+	margin: .7rem 0;
+	font-size: 1.6rem;
+}
+
+.footer-menu > ul > li:before{
+	content: "\f105";
+	font-family: 'FontAwesome';
+	color: #fff;
+	margin-right: 1rem;
+	font-size: 1.6rem;
+}
+
+.contact-content p{
+	color: #fff;
+	font-size: 1.6rem;
+	line-height: 1.3;
+}
+
+.contact-content ul{
+	margin-top: 1.5rem;
+}
+
+.contact-content ul li{
+	margin: 1rem 0;
+	color: #fff;
+	font-weight: 600;
+	font-size: 1.6rem;
+}
+
+.contact-content ul li h4{
+	font-weight: 400;
+	margin-top: .3rem;
+}
+
+.contact-content ul li a{
+	text-decoration: none;
+	color: #fff;
+}
+
+.contact-content ul li a:hover{
+	text-decoration: underline;
+}
+
+.policies-page li a{
+	font-weight: 500;
+	display: inline-block;
+	text-decoration: none;
+	color: #fff;
+	text-transform: capitalize;
+	margin: .7rem 0;
+	font-size: 1.6rem;
+}
+
+.policies-page > ul > li:before{
+	content: "\f105";
+	font-family: 'FontAwesome';
+	color: #fff;
+	margin-right: 1rem;
+	font-size: 1.6rem;
+}
+
+.footer-bottom{
+	text-align: center;
+}
+
+.footer-bottom .row{
+	border-top: .1rem solid #ebebeba2;
+	margin-top: 2rem;
+}
+
+.footer-bottom p{
+	color: #fff;
+	font-size: 1.5rem;
+	margin-top: 3rem;
+}

@@ -1,0 +1,591 @@
+@media screen and (max-width: 1200px){
+    header{
+        height: 80vh;
+    }
+    .hero-text-box{
+        width: 95%;
+    }
+    .about-page-header{
+        height: 65vh;
+    }
+    .services-page-header{
+        height: 65vh;
+    }
+    .team-page-header{
+        height: 65vh;
+    }
+    .work-page-header{
+        height: 65vh;
+    }
+    .faq-page-header{
+        height: 65vh;
+    }
+    .review-page-header{
+        height: 65vh;
+    }
+    .custom-page-page-header{
+        height: 65vh;
+    }
+    .order-page-header{
+        height: 65vh;
+    }
+    .contact-page-header{
+        height: 65vh;
+    }
+    .contact-page-header{
+        height: 65vh;
+    }
+    .privacy-and-terms-page-header{
+        height: 65vh;
+    }
+    .pricing-page-header{
+        height: 65vh;
+    }
+    .pricing-page-header .hero-text-box h1{
+        font-size: 4rem;
+    }    
+}
+@media screen and (max-width: 1170px){
+    .row{
+        margin: 0 15px;
+    }
+    .help-section h3{
+        font-size: 3.5rem;
+    }
+    .help-section h4{
+        font-size: 2.3rem;
+    }
+}
+@media screen and (max-width: 1060px){
+    .main-nav li a:link,
+    .main-nav li a:visited{
+        font-size: 1.5rem;
+    }
+    .home-about-content {
+        margin-top: 1.5rem;
+    }
+    .review-content {
+        margin-top: 2.5rem;
+    }
+}
+@media screen and (max-width: 1024px){
+    header{
+        height: 75vh;
+    }
+    .main-nav{
+        display: none;
+    }
+    .mobile-menu span{
+        display: block;
+    }
+    .home-about-content {
+        margin-top: 1rem;
+    }
+    .home-about-content h3{
+        margin: .9rem 0;
+    }
+    .home-about-content p{
+        line-height: 1.3;
+    }
+    .btn-home-about{
+        margin-top: 1.5rem;
+    }
+    .services-box h3{
+        font-size: 2.2rem;
+    }
+    .review-content {
+        margin-top: 1.3rem;
+    }
+    .review-content h3{
+        margin-bottom: 1.3rem;
+    }
+    .btn-fa{
+        margin-top: 1.5rem;
+    }
+}
+@media screen and (max-width: 980px){
+    header{
+        height: 80vh;
+    }
+    .hero-text-box h1{
+        font-size: 4.2rem;
+    }
+    .hero-text-box p{
+        width: 80%;
+        margin-left: 10%;
+    }
+    .home-about-section .span_1_of_2{
+        width: 100%;
+    }
+    .home-about-img img{
+        width: 70%;
+        display: block;
+        margin: 0 auto;
+    }
+    .home-about-section .col:nth-child(2){
+        margin-left: 0;
+        margin-top: 3.5rem;
+    }
+    .home-about-content h3{
+        margin: 1rem 0;
+    }
+    .home-about-content p{
+        line-height: 1.5;
+    }
+    .btn-home-about{
+        margin-top: 2rem;
+    }
+    .services-section .span_1_of_3{
+        width: 49.2%;
+    }
+    .services-box{
+        padding: 2rem;
+    }
+    .services-box h3{
+        font-size: 2.5rem;
+        margin-top: 5.5rem;
+    }
+    .services-box p{
+        font-weight: 500;
+        font-size: 1.5rem;
+        box-shadow: none;
+    }
+    .services-section .col:nth-child(3){
+        margin-left: 25%;
+        margin-top: 3.5rem;
+    }
+    .Gigs-section .span_1_of_3{
+        width: 49.2%;
+    }
+    .Gigs-section .col:nth-child(3){
+        margin-left: 0;
+        margin-top: 3rem;
+    }
+    .Gigs-section .col:nth-child(4){
+        margin-left: 1rem;
+    }
+    .Gigs-section .col:nth-child(5){
+        margin-top: 3rem;
+       margin-left: 25%;
+    }
+    .Gigs-section .col:nth-child(6){
+        margin-left: 0;
+        margin-top: 3rem;
+    }
+    .Gigs-section .col:nth-child(7){
+        margin-left: 1rem;
+    }
+    .help-section{
+        padding: 7rem 0;
+    }
+    .help-section h3{
+        font-size: 3rem;
+    }
+    .help-section h4{
+        font-size: 2rem;
+    }
+    .counter-section .span_1_of_4{
+        width: 49.2%;
+    }
+    .counter-section .col:nth-child(3){
+        margin-left: 0;
+        margin-top: 3.5rem;
+    }
+    .counter-section .col:nth-child(4){
+        margin-top: 3.5rem;
+    }
+    .footer-section .span_1_of_4{
+        width: 49.2%;
+    }
+    .footer-section .col:nth-child(3){
+        margin-left: 0;
+        margin-top: 2.5rem;
+    }
+    .footer-section .col:nth-child(4){
+        margin-top: 2.5rem;
+    }
+    .pricing-page-header .hero-text-box h1{
+        font-size: 3.5rem;
+    }
+    .pricing-section .span_1_of_3{
+        width: 49.2%;
+    }
+    .pricing-section .col:nth-child(3){
+        margin-left: 25%;
+        margin-top: 3.5rem;
+    }
+    .pricing-section .pricing-des{
+        width: 70%;
+        margin-left: 15%;
+    }
+    .team-section .span_1_of_3{
+        width: 49.2%;
+    }
+    .team-section .col:nth-child(3){
+        margin-left: 0;
+        margin-top: 5.5rem;
+    }
+    .team-section .col:nth-child(4){
+        margin-left: 1rem;
+    }
+    .team-section .col:nth-child(5){
+        margin-left: 0;
+    }
+    .team-section .col:nth-child(7){
+        margin-left: 25%;
+    }
+    .accordion{
+        width: 100%;
+        margin-left: 0;
+    }
+    .review-section .span_1_of_2{
+        width: 100%;
+    }
+    .review-img img{
+        width: 70%;
+        display: block;
+        margin: 0 auto;
+    }
+    .review-section .col:nth-child(2){
+        margin-left: 0;
+        margin-top: 2.5rem;
+    }
+    .order-section form{
+        width: 100%;
+        margin-left: 0;
+    }
+    .order-section .pricing-des{
+        width: 70%;
+        margin-left: 15%;
+    }
+    .box-content h3{
+        font-size: 1.4rem;
+    }
+    .contact-section form{
+        width: 100%;
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 768px){
+    header{
+        height: 93vh;
+    }
+    #preloader .loader-icon img{
+        width: 80%;
+    }
+    .box-content .Icon{
+        left: 33%;
+    }
+}
+@media screen and (max-width: 720px){
+    header{
+        height: 93vh;
+    }
+    h2{
+        font-size: 2.5rem;
+    }
+    .hero-text-box h1{
+        font-size: 4rem;
+    }
+    .hero-text-box p{
+        width: 100%;
+        margin-left: 0;
+        margin-top: 1.5rem;
+    }
+    .home-about-img img{
+        width: 90%;
+    }
+    .services-section .span_1_of_3{
+        width: 100%;
+    }
+    .services-section .col:nth-child(2){
+        margin-left: 0;
+        margin-top: 3.5rem;
+    }
+    .services-section .col:nth-child(3){
+        margin-left: 0;
+    }
+    .services-box{
+        padding: 2.8rem;
+    }
+    .services-box h3{
+        font-size: 2.5rem;
+    }
+    .services-box p{
+        font-weight: 400;
+        font-size: 1.6rem;
+        box-shadow: none;
+    }
+    .Gigs-section .span_1_of_3{
+        width:100%;
+    }
+    .Gigs-section .col:nth-child(2){
+        margin-left: 0;
+        margin-top: 3rem;
+    }
+    .Gigs-section .col:nth-child(3){
+        margin-left: 0;
+        margin-top: 3rem;
+    }
+    .Gigs-section .col:nth-child(4){
+        margin-left: 0;
+    }
+    .Gigs-section .col:nth-child(5){
+        margin-top: 3rem;
+       margin-left: 0;
+    }
+    .Gigs-section .col:nth-child(6){
+        margin-left: 0;
+        margin-top: 3rem;
+    }
+    .Gigs-section .col:nth-child(7){
+        margin-left: 0;
+    }
+    .work-section .span_1_of_3{
+        width: 100%;
+    }
+    .work-section .col:nth-child(2){
+        margin-left: 0;
+    }
+    .work-section .col:nth-child(3){
+        margin-left: 0;
+    }
+    .work-section .col:nth-child(5){
+        margin-left: 0;
+    }
+    .work-section .col:nth-child(6){
+        margin-left: 0;
+    }
+    .work-section .col:nth-child(8){
+        margin-left: 0;
+    }
+    .work-section .col:nth-child(9){
+        margin-left: 0;
+    }
+    .portfolio-img-area img{
+        height: 30rem;
+        border: .2rem solid #245af4;
+    }
+    .box-content .Icon{
+        left: 43%;
+    }
+    .box-content h3{
+        font-size: 1.6rem;
+    }
+    .footer-section .span_1_of_4{
+        width: 100%;
+    }
+    .footer-section .col:nth-child(2){
+        margin-left: 0;
+        margin-top: 2.5rem;
+    }
+    .footer-section .col:nth-child(4){
+       margin-left: 0;
+    }
+    .pricing-page-header .hero-text-box h1{
+        font-size: 3.3rem;
+    }
+    .pricing-section .span_1_of_3{
+        width: 100%;
+    }
+    .pricing-section .col:nth-child(2){
+        margin-left: 0;
+        margin-top: 3.5rem;
+    }
+    .pricing-section .col:nth-child(3){
+        margin-left: 0;
+    }
+    .pricing-section .pricing-des{
+        width: 100%;
+        margin-left: 0;
+    }
+    .accordion .contentBox .label{
+        font-size: 1.6rem;
+    }
+    .team-section .span_1_of_3{
+        width: 100%;
+    }
+    .team-section .col:nth-child(2){
+        margin-left: 0;
+        margin-top: 5.5rem;
+    }
+    .team-section .col:nth-child(4){
+        margin-left: 0;
+    }
+    .team-section .col:nth-child(6){
+        margin-left: 0;
+    }
+    .team-section .col:nth-child(7){
+        margin-left: 0;
+    }
+    .help-section h3{
+        font-size: 2.7rem;
+    }
+    .review-img img{
+        width: 90%;
+    }
+    .order-section form input[type="text"], 
+    .order-section form input[type="email"], 
+    .order-section form input[type="file"], 
+    .order-section form textarea, 
+    .order-section form select{
+        font-size: 1.5rem;
+    }
+    .order-section .pricing-des{
+        width: 100%;
+        margin-left: 0;
+    }
+    .counter-section .span_1_of_4{
+        width: 100%;
+    }
+    .counter-section .col:nth-child(2){
+        margin-left: 0;
+        margin-top: 3.5rem;
+    }
+    .counter-section .col:nth-child(4){
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 480px){
+    html{
+		font-size: 56.25%;
+	}
+    header{
+        height: 94vh;
+    }
+    #preloader .loader-icon img{
+        width: 100%;
+    }
+    .faq-page h2::after{
+        display: none;
+    }
+    .faq-page h2::before{
+        display: none;
+    }
+    .hero-text-box h1{
+        font-size: 3.9rem;
+    }
+    .hero-text-box p{
+        margin-top: 2rem;
+    }
+    .home-about-img img{
+        width: 100%;
+    }
+    .help-section{
+        padding: 8rem 0;
+    }
+    .about-page-header{
+        height: 70vh;
+    }
+    .services-page-header{
+        height: 70vh;
+    }
+    .team-page-header{
+        height: 70vh;
+    }
+    .work-page-header{
+        height: 70vh;
+    }
+    .faq-page-header{
+        height: 70vh;
+    }
+    .review-page-header{
+        height: 70vh;
+    }
+    .custom-page-page-header{
+        height: 70vh;
+    }
+    .order-page-header{
+        height: 70vh;
+    }
+    .contact-page-header{
+        height: 70vh;
+    }
+    .contact-page-header{
+        height: 70vh;
+    }
+    .privacy-and-terms-page-header{
+        height: 70vh;
+    }
+    .pricing-page-header{
+        height: 70vh;
+    }
+    .pricing-page-header .hero-text-box h1{
+        font-size: 3rem;
+    }
+    .box-content .Icon{
+        left: 39%;
+    }
+    .review-img img{
+        width: 100%;
+    }   
+}
+@media screen and (max-width: 360px){
+    h2{
+        font-size: 2.2rem;
+    }
+    .hero-text-box h1{
+        font-size: 3rem;
+    }
+    .owl-theme .owl-dots .owl-dot span{
+        border-radius: 1rem !important;
+        width: 20px !important;
+        height: 10px !important;
+    } 
+
+    .logo {
+        width: 18rem;
+    }
+}
+@media screen and (max-width: 340px){
+    .box-content .Icon{
+        left: 37%;
+    }
+}
+@media screen and (max-width: 300px){
+    .logo{
+        width: 20rem;
+    }
+    .mobile-logo{
+        width: 20rem;
+    }
+    .hero-text-box h1{
+        font-size: 3rem;
+    }
+    .custom-order h2::after{
+        display: none;
+    }
+    .custom-order h2::before{
+        display: none;
+    }
+    .box-content .Icon{
+        left: 35%;
+    }
+    .help-section h3{
+        font-size: 2rem;
+    }
+    .team-social a{
+        width: 3.5rem;
+        height: 3.5rem;
+       line-height: 3.5rem;
+    }
+    .privacy-and-terms-page-header{
+        height: 60vh;
+    }
+    .pricing-page-header{
+        height: 60vh;
+    }
+    .pricing-page-header .hero-text-box h1{
+        font-size: 2.5rem;
+    }
+    .accordion .contentBox .label{
+        font-size: 1.5rem;
+    }
+    .order-section form input[type="text"], 
+    .order-section form input[type="email"], 
+    .order-section form input[type="file"], 
+    .order-section form textarea, 
+    .order-section form select{
+        font-size: 1.4rem;
+    }
+}
